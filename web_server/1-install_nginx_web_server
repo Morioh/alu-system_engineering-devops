@@ -3,28 +3,7 @@
 #   - Nginx should be listening on port 80
 #   - Return page containing "Holberton School" when queried
 
-# Install Nginx
-apt-get update
-apt-get install -y nginx
-
-# Configure Nginx
-echo "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-    index index.html;
-
-    server_name _;
-
-    location / {
-        try_files \$uri \$uri/ =404;
-    }
-
-    location / {
-        return 200 'Holberton School';
-    }
-}" > /etc/nginx/sites-available/default
-
-# Restart Nginx
-/etc/init.d/nginx restart
+sudo apt update && upgrade
+sudo apt install nginx -y 
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo service nginx start
