@@ -28,4 +28,3 @@ echo "server {
 
 # Restart Nginx
 /etc/init.d/nginx restart
-
